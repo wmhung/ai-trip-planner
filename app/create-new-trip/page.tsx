@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import ChatBox from './_components/ChatBox';
 import Itinerary from './_components/Itinerary';
 import { useTripDetail } from '../provider';
@@ -21,7 +21,9 @@ function CreateNewTrip() {
   return (
     <div className='grid grid-cols-1 md:grid-cols-5 gap-5 p-10'>
       <div className='col-span-2'>
-        <ChatBox />
+        <Suspense fallback={<div className='p-4 text-gray-400'>Loading…</div>}>
+          <ChatBox />
+        </Suspense>
       </div>
       <div className='col-span-3 relative'>
         {activeIndex == 0 ? <Itinerary /> : <GlobalMap />}

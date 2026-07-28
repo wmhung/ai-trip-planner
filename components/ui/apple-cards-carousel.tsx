@@ -113,14 +113,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         >
           <div
             className={cn(
-              'absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l'
+              'absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l',
             )}
           ></div>
 
           <div
             className={cn(
               'flex flex-row justify-start gap-4 pl-4',
-              'mx-auto max-w-7xl'
+              'mx-auto max-w-7xl',
             )}
           >
             {items.map((item, index) => (
@@ -133,7 +133,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                     duration: 0.5,
                     delay: 0.2 * index,
                     ease: 'easeOut',
-                    once: true,
                   },
                 }}
                 key={'card' + index}
@@ -154,7 +153,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             'transition-opacity duration-300',
             'md:opacity-0 md:group-hover:opacity-100',
             'disabled:opacity-40',
-            'md:left-4'
+            'md:left-4',
           )}
           onClick={scrollLeft}
           disabled={!canScrollLeft}
@@ -171,7 +170,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             'transition-opacity duration-300',
             'md:opacity-0 md:group-hover:opacity-100',
             'disabled:opacity-40',
-            'md:right-4'
+            'md:right-4',
           )}
           onClick={scrollRight}
           disabled={!canScrollRight}
@@ -317,7 +316,7 @@ export const BlurImage = ({
       className={cn(
         'h-full w-full transition duration-300',
         isLoading ? 'blur-sm' : 'blur-0',
-        className
+        className,
       )}
       onLoad={() => setLoading(false)}
       src={src as string}
