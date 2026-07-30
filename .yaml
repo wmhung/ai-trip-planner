@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: ai-trip-planner
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: '20'
+      # Convex — deploy functions from your machine with `npx convex deploy`,
+      # then paste the production deployment URL here (https://<name>.convex.cloud).
+      - key: NEXT_PUBLIC_CONVEX_URL
+        sync: false
+      # Clerk
+      - key: NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+        sync: false
+      - key: CLERK_SECRET_KEY
+        sync: false
+      - key: NEXT_PUBLIC_CLERK_SIGN_IN_URL
+        sync: false
+      - key: NEXT_PUBLIC_CLERK_SIGN_UP_URL
+        sync: false
+      - key: NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL
+        sync: false
+      - key: NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL
+        sync: false
+      # AI (OpenRouter)
+      - key: OPENROUTER_API_KEY
+        sync: false
+      # Google Places
+      - key: GOOGLE_PLACE_API_KEY
+        sync: false
+      # Mapbox
+      - key: NEXT_PUBLIC_MAPBOX_TOKEN
+        sync: false
+      # Arcjet
+      - key: ARCJET_KEY
+        sync: false
